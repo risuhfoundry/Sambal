@@ -212,4 +212,3 @@ export const makeIncident = (state: DemoState, type: Incident['type'], now = new
   next.audit.unshift({ id: `AUD-${crypto.randomUUID().slice(0, 8)}`, action: 'Scenario activated', actor: state.currentUser.name, detail: `${incident.label} · simulated only`, createdAt: now })
   return next
 }
-
