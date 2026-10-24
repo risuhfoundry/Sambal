@@ -1,0 +1,61 @@
+import type { DemoState } from '../domain/models'
+
+// Fictional seed records for the local demonstration. No live availability is implied.
+export const createSeedState = (): DemoState => ({
+  role: 'Coordinator',
+  currentUser: { id: 'USER-01', name: 'Alex Patel', role: 'Coordinator', organizationId: 'ORG-01' },
+  organizations: [
+    { id: 'ORG-01', name: 'Lifeline Demo Team', type: 'Coordinator' },
+    { id: 'ORG-02', name: 'Harbor Community Store', type: 'Shop' },
+    { id: 'ORG-03', name: 'Common Ground Relief', type: 'NGO' },
+    { id: 'ORG-04', name: 'Northside Health Collective', type: 'Clinic' },
+    { id: 'ORG-05', name: 'Neighborhood Hands', type: 'Community group' },
+  ],
+  warehouses: [
+    { id: 'WH-01', name: 'Harbor Relief Depot', address: '18 Dock Road', city: 'Sambal', hours: '08:00–18:00', accessNotes: 'Step-free pickup at the side entrance', serviceAreas: ['North Ridge'], verified: true, accessible: true, latitude: 13.0827, longitude: 80.2707 },
+    { id: 'WH-02', name: 'East Junction Relief Hub', address: '4 Market Street', city: 'Sambal', hours: '09:00–17:00', accessNotes: 'Flood access scenario may block this location', serviceAreas: ['East Junction'], verified: true, accessible: true, latitude: 13.0878, longitude: 80.2785 },
+    { id: 'WH-03', name: 'Common Ground Storehouse', address: '52 School Lane', city: 'Sambal', hours: '08:30–16:30', accessNotes: 'Call on arrival; loading bay is wheelchair accessible', serviceAreas: ['South Market', 'West Field'], verified: true, accessible: true, latitude: 13.0744, longitude: 80.2639 },
+    { id: 'WH-04', name: 'Northside Clinic Store', address: '9 Garden Avenue', city: 'Sambal', hours: '10:00–18:00', accessNotes: 'Medical supplies picked up at reception', serviceAreas: ['Northside', 'Garden Avenue'], verified: true, accessible: true, latitude: 13.0922, longitude: 80.2678 },
+    { id: 'WH-05', name: 'Neighborhood Relief Point', address: '2 Lake View Road', city: 'Sambal', hours: '07:00–19:00', accessNotes: 'Bring a reusable bag where possible', serviceAreas: ['Lake View', 'East Junction'], verified: false, accessible: true, latitude: 13.0791, longitude: 80.2851 },
+  ],
+  listings: [
+    { id: 'L-101', name: 'Drinking water', description: 'Sealed drinking-water supply. Quantity is shown in litres.', category: 'Water', listingType: 'FREE', quantity: 240, unit: 'litres', priceInr: 0, bestBefore: '2027-05-01', providerId: 'ORG-02', warehouseId: 'WH-01', status: 'Active', createdAt: '2026-10-20T09:00:00+05:30' },
+    { id: 'L-102', name: 'Purification tablets', description: 'Water treatment tablets, 50 per strip.', category: 'Water', listingType: 'FREE', quantity: 26, unit: 'strips', priceInr: 0, bestBefore: '2027-03-15', providerId: 'ORG-03', warehouseId: 'WH-03', status: 'Active', createdAt: '2026-10-19T10:15:00+05:30' },
+    { id: 'L-103', name: 'Rice and lentil packs', description: 'One-day staple food pack for a household.', category: 'Food', listingType: 'FREE', quantity: 64, unit: 'packs', priceInr: 0, bestBefore: '2026-12-20', providerId: 'ORG-03', warehouseId: 'WH-03', status: 'Active', createdAt: '2026-10-21T08:30:00+05:30' },
+    { id: 'L-104', name: 'Family meal kit', description: 'Staple meal kit for four, surplus stock.', category: 'Food', listingType: 'PAID', quantity: 38, unit: 'kits', priceInr: 85, bestBefore: '2026-11-15', providerId: 'ORG-02', warehouseId: 'WH-01', status: 'Active', createdAt: '2026-10-22T09:10:00+05:30' },
+    { id: 'L-105', name: 'Hygiene essentials pack', description: 'Soap, sanitary pads, toothbrushes, and toothpaste.', category: 'Hygiene', listingType: 'FREE', quantity: 29, unit: 'packs', priceInr: 0, bestBefore: '2028-01-01', providerId: 'ORG-05', warehouseId: 'WH-05', status: 'Active', createdAt: '2026-10-18T11:20:00+05:30' },
+    { id: 'L-106', name: 'Soap and sanitizer bundle', description: 'Affordable hygiene bundle from local surplus.', category: 'Hygiene', listingType: 'PAID', quantity: 51, unit: 'bundles', priceInr: 42, providerId: 'ORG-02', warehouseId: 'WH-01', status: 'Active', createdAt: '2026-10-22T13:00:00+05:30' },
+    { id: 'L-107', name: 'Basic first-aid kit', description: 'Bandages, gauze, antiseptic, and gloves.', category: 'Medical', listingType: 'FREE', quantity: 5, unit: 'kits', priceInr: 0, bestBefore: '2027-08-10', providerId: 'ORG-04', warehouseId: 'WH-04', status: 'Active', createdAt: '2026-10-17T12:10:00+05:30' },
+    { id: 'L-108', name: 'Oral rehydration salts', description: 'ORS sachets, ten sachets per box.', category: 'Medical', listingType: 'FREE', quantity: 34, unit: 'boxes', priceInr: 0, bestBefore: '2027-01-30', providerId: 'ORG-04', warehouseId: 'WH-04', status: 'Active', createdAt: '2026-10-20T15:40:00+05:30' },
+    { id: 'L-109', name: 'Rechargeable lantern', description: 'Tested emergency lantern, USB rechargeable.', category: 'Emergency essentials', listingType: 'PAID', quantity: 17, unit: 'lanterns', priceInr: 320, providerId: 'ORG-05', warehouseId: 'WH-05', status: 'Active', createdAt: '2026-10-16T14:00:00+05:30' },
+    { id: 'L-110', name: 'Emergency blankets', description: 'Thermal blanket for emergency shelter use.', category: 'Emergency essentials', listingType: 'FREE', quantity: 31, unit: 'blankets', priceInr: 0, providerId: 'ORG-03', warehouseId: 'WH-03', status: 'Active', createdAt: '2026-10-18T16:45:00+05:30' },
+    { id: 'L-111', name: 'Bottled water, 1 litre', description: 'Sealed cases; best-before date has passed.', category: 'Water', listingType: 'FREE', quantity: 10, unit: 'bottles', priceInr: 0, bestBefore: '2025-08-01', providerId: 'ORG-02', warehouseId: 'WH-02', status: 'Active', createdAt: '2026-10-15T08:00:00+05:30' },
+    { id: 'L-112', name: 'Rice surplus bag', description: 'Affordable 5 kg rice bag from local shop surplus.', category: 'Food', listingType: 'PAID', quantity: 22, unit: 'bags', priceInr: 110, bestBefore: '2027-01-05', providerId: 'ORG-02', warehouseId: 'WH-02', status: 'Active', createdAt: '2026-10-21T12:00:00+05:30' },
+    { id: 'L-113', name: 'Drinking water (loose cans)', description: 'Sealed 20 L cans. Quantity is shown in litres.', category: 'Water', listingType: 'FREE', quantity: 120, unit: 'litres', priceInr: 0, bestBefore: '2027-04-30', providerId: 'ORG-05', warehouseId: 'WH-02', status: 'Active', createdAt: '2026-10-21T09:40:00+05:30' },
+  ],
+  requests: [
+    { id: 'REQ-2401', requester: 'North Ridge household', category: 'Water', resourceName: 'Drinking water', quantity: 60, unit: 'litres', urgency: 'Critical', location: 'North Ridge · Block 4', createdAt: '2026-10-23T08:20:00+05:30', status: 'Under Review', notes: 'Water supply has been interrupted since yesterday.', allocatedQuantity: 0 },
+    { id: 'REQ-2402', requester: 'East Junction clinic', category: 'Medical', resourceName: 'First-aid kits', quantity: 4, unit: 'kits', urgency: 'High', location: 'East Junction', createdAt: '2026-10-23T08:05:00+05:30', status: 'Under Review', notes: 'Supports a volunteer first-aid station.', allocatedQuantity: 0 },
+    { id: 'REQ-2403', requester: 'South Market family group', category: 'Food', resourceName: 'Rice and lentil packs', quantity: 24, unit: 'packs', urgency: 'High', location: 'South Market', createdAt: '2026-10-23T07:46:00+05:30', status: 'Submitted', notes: 'Shared kitchen is short on staple ingredients.', allocatedQuantity: 0 },
+    { id: 'REQ-2404', requester: 'West Field shelter', category: 'Emergency essentials', resourceName: 'Emergency blankets', quantity: 18, unit: 'blankets', urgency: 'Routine', location: 'West Field', createdAt: '2026-10-22T18:25:00+05:30', status: 'Under Review', notes: 'Additional blankets requested ahead of evening drop.', allocatedQuantity: 0 },
+    { id: 'REQ-2405', requester: 'East Junction household', category: 'Hygiene', resourceName: 'Hygiene essentials pack', quantity: 12, unit: 'packs', urgency: 'High', location: 'East Junction', createdAt: '2026-10-22T17:32:00+05:30', status: 'Submitted', notes: 'Request is for free assistance.', allocatedQuantity: 0 },
+    { id: 'REQ-2406', requester: 'Mobile clinic 2', category: 'Medical', resourceName: 'Oral rehydration salts', quantity: 15, unit: 'boxes', urgency: 'Critical', location: 'North Ridge', createdAt: '2026-10-22T16:52:00+05:30', status: 'Under Review', notes: 'Prioritize heat-related illness response.', allocatedQuantity: 0 },
+    { id: 'REQ-2407', requester: 'Lake View community kitchen', category: 'Food', resourceName: 'Rice and lentil packs', quantity: 38, unit: 'packs', urgency: 'Routine', location: 'Lake View', createdAt: '2026-10-22T15:41:00+05:30', status: 'Submitted', notes: 'Could collect in two trips if needed.', allocatedQuantity: 0 },
+    { id: 'REQ-2408', requester: 'Garden Avenue household', category: 'Water', resourceName: 'Purification tablets', quantity: 8, unit: 'strips', urgency: 'High', location: 'Garden Avenue', createdAt: '2026-10-22T14:16:00+05:30', status: 'Approved', notes: 'Allocation confirmed; awaiting pickup.', allocatedQuantity: 8 },
+    { id: 'REQ-2409', requester: 'Shelter 12', category: 'Emergency essentials', resourceName: 'Emergency blankets', quantity: 12, unit: 'blankets', urgency: 'High', location: 'West Field', createdAt: '2026-10-22T13:24:00+05:30', status: 'Fulfillment in Progress', notes: 'Pickup has been confirmed with the provider.', allocatedQuantity: 12 },
+    { id: 'REQ-2410', requester: 'Northside household', category: 'Hygiene', resourceName: 'Hygiene essentials pack', quantity: 6, unit: 'packs', urgency: 'Routine', location: 'Northside', createdAt: '2026-10-22T12:10:00+05:30', status: 'Under Review', notes: 'No additional details.', allocatedQuantity: 0 },
+  ],
+  orders: [],
+  deliveries: [],
+  reservations: [
+    { id: 'RSV-01', listingId: 'L-102', requestId: 'REQ-2408', quantity: 8, status: 'Active', createdAt: '2026-10-22T14:50:00+05:30' },
+    { id: 'RSV-02', listingId: 'L-110', requestId: 'REQ-2409', quantity: 12, status: 'Active', createdAt: '2026-10-22T13:55:00+05:30' },
+  ],
+  reviews: [],
+  audit: [
+    { id: 'AUD-01', action: 'Request received', actor: 'Demo resident', detail: 'REQ-2401 · 60 litres drinking water · North Ridge', createdAt: '2026-10-23T08:20:00+05:30' },
+    { id: 'AUD-02', action: 'Request received', actor: 'Demo clinic', detail: 'REQ-2402 · 4 first-aid kits · East Junction', createdAt: '2026-10-23T08:05:00+05:30' },
+    { id: 'AUD-03', action: 'Inventory checked', actor: 'Alex Patel', detail: 'Baseline demo inventory loaded for coordinator review.', createdAt: '2026-10-23T07:00:00+05:30' },
+  ],
+  incidents: [],
+})
